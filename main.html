@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rage bait</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        h1 {
+    text-align: center;
+    margin-top: 40vh;
+    transition: transform 0.15s ease-in-out;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Finnally loged in ahh...........</h1>
+    <script>
+    $(document).ready(function () {
+    const colors = ['red', 'yellow', 'magenta', 'darkblue', 'cyan', 'lime'];
+    let i = 0;
+    let grow = true;
+
+    setInterval(function () {
+        $('body').css('background-color', colors[i]);
+        i = (i + 1) % colors.length;
+
+        // text pulse
+        $('h1').css('transform', grow ? 'scale(1.2)' : 'scale(0.9)');
+        grow = !grow;
+
+    }, 150);
+});
+
+    </script>
+</body>
+</html>

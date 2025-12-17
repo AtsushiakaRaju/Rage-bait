@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rage bait</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+    body {
+        background-color: black;
+        margin: 0;
+        position: relative; /* 🔥 IMPORTANT */
+    }
+
+    .fakeLoginBtn {
+        position: absolute; /* 🔥 REQUIRED */
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+
+    #instruction {
+        color: white;
+        text-align: center;
+        position: fixed;
+        bottom: 20px;
+        width: 100%;
+    }
+
+    #instruction a {
+        text-decoration: none;
+        color: white;
+    }
+</style>
+
+</head>
+<body id="mainBox">
+        <div id="instruction">Click on the <a href="main.html">"login"</a></div>
+        <script>
+            $(document).ready(function () {
+    spawnButtons();
+});
+
+function spawnButtons() {
+    let count = 20;
+    let cols = 5;
+    let spacingX = window.innerWidth / cols;
+    let spacingY = 70;
+    let row = 0, col = 0;
+
+    for (let i = 0; i < count; i++) {
+
+        let btn = $('<button>Login</button>').addClass('fakeLoginBtn');
+
+        let x = col * spacingX + 40;
+        let y = row * spacingY + 80;
+
+        btn.css({
+            left: x + 'px',
+            top: y + 'px'
+        });
+
+        // ALL buttons are fake
+        btn.on('click', function () {
+            $(this).fadeOut(150);
+        });
+
+        $('#mainBox').append(btn);
+
+        col++;
+        if (col >= cols) {
+            col = 0;
+            row++;
+        }
+    }
+}
+
+        </script>
+</body>
+</html>

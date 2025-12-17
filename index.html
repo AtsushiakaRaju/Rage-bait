@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rage bait</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        
+    #mainContent {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+    }
+    #loginbtn {
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+    input {
+    padding: 8px;
+    width: 200px;
+}
+    </style>
+</head>
+<body>
+    <div id="mainContent">
+        <input type="text" id="Name" placeholder="Name">
+        <input type="number" id="age" placeholder="Age">
+        <button id="loginbtn">Login</button>
+    </div>
+    <script>
+        let maxMoves = 5;
+        let moves = 0;
+        let times = 1;
+        $("#loginbtn").on("mouseenter", function(){
+            let x = Math.random() * (window.innerWidth - $(this).outerWidth());
+            let y = Math.random() * (window.innerHeight - $(this).outerHeight());
+            times -= 0.08;
+            if(moves < maxMoves){
+                $(this).css({left: x + "px", top: y + "px", position: "absolute"});
+                $(this).css('transform', 'scale(' + times + ')');
+                moves++;
+            }
+        });
+        $("#loginbtn").on("click", function(){
+          window.location.href = "rage.html";
+        });
+    </script>
+</body>
+</html>
